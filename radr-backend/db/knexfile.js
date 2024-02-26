@@ -2,6 +2,7 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
+import * from '../../app'
 module.exports = {
 
   development: {

@@ -22,8 +22,8 @@ exports.up = async function(knex) {
         table.string('dbSNP_id')
         table.string('clnallele_id')
         table.string('clnsig')
-        table.string('intervar') // intervar and evidence?
-        table.string('pathogenecity_revised')
+        table.string('intervar_and_evidence') // intervar and evidence?
+        table.string('pathogenecity_revised') 
         table.string('source')
     })
 };
