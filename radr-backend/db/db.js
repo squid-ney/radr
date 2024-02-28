@@ -1,21 +1,19 @@
 import fs from 'fs';
 import knex from 'knex';
-// import yaml from 'js-yaml';
+import dotenv from 'dotenv'
+import { DB_CLIENT, DB_CONNECTION} from './constants';
+dotenv.config()
 
 export class db {
     db
 
     constructor(){
-        const db = knex({client: 'mysql2',
-        connection: {
-          host : '127.0.0.1',
-          port : 3307,
-          user : 'radr-user',
-          password : 'password',
-          database : 'radr'
-        },
+        const db = knex({
+        client: DB_CLIENT,
+        connection: DB_CONNECTION,
           });
-          this.db= db;
+        
+        this.db= db;
     }
 
     getDB(){
