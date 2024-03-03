@@ -11,7 +11,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/variants", async (req, res) => {
-  const hi = "hi";
   const results = await knexDB.select("*").from("variants");
   res.send(results);
 });
