@@ -1,8 +1,6 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
- */
-exports.seed = async function(knex) {
+import {Knex} from 'knex';
+
+exports.seed = async function(knex: Knex) {
   // Deletes ALL existing entries
   await knex('variants').del()
   await knex('variants').insert([

@@ -1,4 +1,4 @@
-import { DB_CLIENT, DB_CONNECTION} from './constants'
+import { DB_CLIENT, DB_CONNECTION} from './dbConnection.js'
 // Update with your config settings.
 /**
  * @type { Object.<string, import("knex").Knex.Config> }

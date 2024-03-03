@@ -1,8 +1,7 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.up = async function(knex) {
+import {Knex} from 'knex';
+
+exports.up = async function(knex: Knex) {
+    // @ts-ignore
     await knex.schema.createTable('variants', (table) => {
         table.increments('variant_id')
         table.string('gene');
@@ -32,6 +31,6 @@ exports.up = async function(knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = async function(knex) {
+exports.down = async function(knex: Knex) {
   return knex.schema.dropTable('variants')
 };
