@@ -1,21 +1,19 @@
-import knex, { Knex } from 'knex';
+import knex, { Knex } from "knex";
 
 export class Database {
-    db: Knex
+  db: Knex;
 
-    constructor(client: any, conn: any ){
-        console.log({client: client,
-            connection: conn,})
-        const db = knex({
-        client: client,
-        connection: conn,
-          });
-        
-        this.db= db;
-    }
+  constructor(client: any, conn: any) {
+    console.log({ client: client, connection: conn });
+    const db = knex({
+      client: client,
+      connection: conn,
+    });
 
-    getDB(){
-        return this.db
-    }
+    this.db = db;
+  }
 
+  getDB() {
+    return this.db;
+  }
 }
