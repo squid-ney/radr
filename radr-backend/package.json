@@ -8,7 +8,8 @@
     "start": "tsc && node --experimental-modules dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "knex migrate:latest --knexfile db/knexfile.js",
-    "seed": "knex seed:run --knexfile db/knexfile.js"
+    "seed": "knex seed:run --knexfile db/knexfile.js",
+    "lint": "eslint --ext .js,.ts"
   },
   "keywords": [],
   "author": "",
