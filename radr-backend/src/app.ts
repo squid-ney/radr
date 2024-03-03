@@ -1,9 +1,12 @@
-import {db} from './db/db.js'
+import 'dotenv/config'
+import {Database} from './db/database.js'
+import {DB_CONNECTION, DB_CLIENT} from './db/dbConnection.js'
 import express from 'express'
-
 const app = express();
 
-const knexDB = new db().getDB();
+const knexDB = new Database(DB_CLIENT, DB_CONNECTION).getDB();
+
+
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
