@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-app-config.local.yaml
+radr-backend/dist
 
 # dependencies
 radr-backend/node_modules/
@@ -14,6 +14,7 @@ radr-frontend/node_modules/
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
