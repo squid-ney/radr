@@ -15,7 +15,6 @@ export const VariantGrid = () => {
     fetchVariants();
   }, []);
 
-  console.log({ variants });
   const columns: GridColDef[] = [
     { field: "variant_id", headerName: "Variant ID", width: 150 },
     { field: "gene", headerName: "Gene", width: 150 },
