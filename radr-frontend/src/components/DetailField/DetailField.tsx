@@ -1,10 +1,7 @@
 import React from "react";
 
-interface DetailFieldProps {
-  field: string;
-  value: string | number;
-}
-export const DetailField = ({ field, value }: DetailFieldProps) => {
+export const DetailField = ({ field, value }) => {
+  console.log("detail field ", { field, value });
   return (
     <div>
       <p>{field}</p>
