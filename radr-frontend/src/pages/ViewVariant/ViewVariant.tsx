@@ -18,12 +18,12 @@ export const ViewVariant = ({ variant }: { variant: Variant }) => {
     "position",
     "ref",
     "alt",
-    "GH38_gDNA_coord",
-    "HgvsP",
+    "gh38_gdna_coord",
+    "hgvsp",
   ];
   const pathogenecityInfoFields: (keyof Variant)[] = [
     "pathogenecity_original",
-    "pathogenecity_revised",
+    "pathogenecity_radr",
     "intervar_and_evidence",
     "clnsig",
   ];

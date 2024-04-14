@@ -6,6 +6,7 @@ import {
   GridToolbarExport,
 } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
+import { variantFieldsToReadable } from "../../pages/utils";
 
 export const VariantGrid = () => {
   const [variants, setVariants] = useState([]);
@@ -23,55 +24,46 @@ export const VariantGrid = () => {
 
   const columns: GridColDef[] = [
     {
-      field: "variant_id",
-      headerName: "Variant ID",
+      field: "hgvsg",
+      headerName: variantFieldsToReadable["hgvsg"],
       width: 150,
       renderCell: (rowData) => (
         <Link to={`/variant/${rowData.row.variant_id}`}>
-          {rowData.row.variant_id}
+          {rowData.row.hgvsp}
         </Link>
       ),
     },
-    { field: "gene", headerName: "Gene", width: 150 },
-    { field: "chromosome", headerName: "Chromosome", width: 150 },
-    { field: "position", headerName: "Position", width: 150 },
-    { field: "ref", headerName: "Ref", width: 150 },
-    { field: "alt", headerName: "Alt", width: 150 },
-    { field: "GH38_gDNA_coord", headerName: "GH38_gDNA_coord", width: 150 },
-    { field: "HgvsP", headerName: "HgvsP", width: 150 },
-    { field: "mutation", headerName: "Mutation", width: 150 },
+    { field: "gene", headerName: variantFieldsToReadable["gene"], width: 150 },
+    {
+      field: "hgvsp",
+      headerName: variantFieldsToReadable["hgvsp"],
+      width: 150,
+    },
+    {
+      field: "hgvsp_brief",
+      headerName: variantFieldsToReadable["hgvsp_brief"],
+      width: 150,
+    },
     {
       field: "exonic_func_known_gene",
-      headerName: "Exonic Function Known Gene",
-      width: 150,
+      headerName: variantFieldsToReadable["exonic_func_known_gene"],
+      width: 250,
     },
-    { field: "region", headerName: "Region", width: 150 },
     {
       field: "clinical_phenotype",
-      headerName: "Clinical Phenotype",
+      headerName: variantFieldsToReadable["clinical_phenotype"],
       width: 150,
     },
     {
-      field: "pathogenecity_original",
-      headerName: "Pathogenecity Original",
-      width: 150,
-    },
-    { field: "neuropathology", headerName: "Neuropathology", width: 150 },
-    { field: "info", headerName: "Info", width: 150 },
-    { field: "dbSNP_id", headerName: "DbSNP_id", width: 150 },
-    { field: "clnallele_id", headerName: "Clnallele ID", width: 150 },
-    { field: "clnsig", headerName: "Clnsig", width: 150 },
-    {
-      field: "intervar_and_evidence",
-      headerName: "Intervar And Evidence",
+      field: "source",
+      headerName: variantFieldsToReadable["source"],
       width: 150,
     },
     {
-      field: "pathogenecity_revised",
-      headerName: "Pathogenecity Revised",
+      field: "pathogenecity_radr",
+      headerName: variantFieldsToReadable["pathogenecity_radr"],
       width: 150,
     },
-    { field: "source", headerName: "Source", width: 150 },
   ];
   const CustomToolbar = () => {
     return (
