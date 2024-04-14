@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Variant, variantFieldsToReadable } from "../utils";
 import {
   Table,
@@ -9,9 +9,32 @@ import {
   Paper,
   Grid,
 } from "@mui/material";
+import { useParams } from "react-router-dom";
 
-export const ViewVariant = ({ variant }: { variant: Variant }) => {
-  // const entries = Object.entries(variant);
+export const ViewVariant = () => {
+  const [variant, setVariant] = useState({});
+  const { variantID } = useParams();
+
+  useEffect(() => {
+    const fetchVariants = async () => {
+      const request: Request = new Request("http://localhost:9000/variant", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ variant_id: variantID }),
+      });
+
+      await fetch(request)
+        .then((res) => res.json())
+        .then((body) => setVariant(body))
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    fetchVariants();
+  }, []);
+
   const geneticInfoFields: (keyof Variant)[] = [
     "gene",
     "chromosome",
