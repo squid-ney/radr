@@ -5,6 +5,8 @@ import { NavBar } from "../NavBar/NavBar";
 
 const Content = styled(Box)(({ theme }) => ({
   paddingTop: theme.spacing(12),
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
 }));
 
 export const AppLayout = () => {

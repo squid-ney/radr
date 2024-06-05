@@ -17,13 +17,16 @@ export const ViewVariant = () => {
 
   useEffect(() => {
     const fetchVariants = async () => {
-      const request: Request = new Request("http://localhost:9000/variant", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ variant_id: variantID }),
-      });
+      const request: Request = new Request(
+        "http://localhost:9000/api/variant",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ variant_id: variantID }),
+        }
+      );
 
       await fetch(request)
         .then((res) => res.json())
