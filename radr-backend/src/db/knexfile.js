@@ -2,9 +2,9 @@ export default {
   client: "mysql2",
   connection: {
     database: "radr",
-    user: "radr-user",
-    password: "password",
-    port: "3307",
+    user: process.env.username,
+    password: process.env.password,
+    port: process.env.database,
   },
   migrations: {
     tableName: "knex_migrations",
