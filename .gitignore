@@ -10,7 +10,7 @@ radr-frontend/node_modules/
 /coverage
 
 # production
-/build
+radr-frontend/build
 
 # misc
 .DS_Store
