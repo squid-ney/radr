@@ -7,8 +7,8 @@
   "scripts": {
     "start": "tsc && node --experimental-modules dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "knex migrate:latest --knexfile db/knexfile.js",
-    "seed": "knex seed:run --knexfile db/knexfile.js",
+    "migrate": "knex migrate:latest --knexfile ./src/db/knexfile.js",
+    "seed": "knex seed:run --knexfile ./src/db/knexfile.js",
     "lint": "eslint --ext .js,.ts",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
@@ -29,6 +29,6 @@
     "@types/node": "^20.11.23",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   }
 }

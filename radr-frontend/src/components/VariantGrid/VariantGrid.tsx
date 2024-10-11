@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColDef,
+  GridToolbarContainer,
+  GridToolbarExport,
+} from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
+import { variantFieldsToReadable } from "../../pages/utils";
 
 export const VariantGrid = () => {
   const [variants, setVariants] = useState([]);
   useEffect(() => {
     const fetchVariants = async () => {
-      await fetch("http://localhost:9000/variants")
+      await fetch("http://localhost:9000/api/variants")
         .then((res) => res.json())
         .then((body) => setVariants(body))
         .catch((err) => {
@@ -15,7 +22,6 @@ export const VariantGrid = () => {
     fetchVariants();
   }, []);
 
-  console.log({ variants });
   const columns: GridColDef[] = [
     {
       field: "hgvsg",
@@ -29,44 +35,52 @@ export const VariantGrid = () => {
     },
     { field: "gene", headerName: variantFieldsToReadable["gene"], width: 150 },
     {
-      field: "exonic_func_known_gene",
-      headerName: "exonic_func_known_gene",
+      field: "hgvsp",
+      headerName: variantFieldsToReadable["hgvsp"],
       width: 150,
     },
-    { field: "region", headerName: "region", width: 150 },
+    {
+      field: "hgvsp_brief",
+      headerName: variantFieldsToReadable["hgvsp_brief"],
+      width: 150,
+    },
+    {
+      field: "exonic_func_known_gene",
+      headerName: variantFieldsToReadable["exonic_func_known_gene"],
+      width: 250,
+    },
     {
       field: "clinical_phenotype",
-      headerName: "clinical_phenotype",
+      headerName: variantFieldsToReadable["clinical_phenotype"],
       width: 150,
     },
     {
-      field: "pathogenecity_original",
-      headerName: "pathogenecity_original",
-      width: 150,
-    },
-    { field: "neuropathology", headerName: "neuropathology", width: 150 },
-    { field: "info", headerName: "info", width: 150 },
-    { field: "dbSNP_id", headerName: "dbSNP_id", width: 150 },
-    { field: "clnallele_id", headerName: "clnallele_id", width: 150 },
-    { field: "clnsig", headerName: "clnsig", width: 150 },
-    {
-      field: "intervar_and_evidence",
-      headerName: "intervar_and_evidence",
+      field: "source",
+      headerName: variantFieldsToReadable["source"],
       width: 150,
     },
     {
-      field: "pathogenecity_revised",
-      headerName: "pathogenecity_revised",
+      field: "pathogenecity_radr",
+      headerName: variantFieldsToReadable["pathogenecity_radr"],
       width: 150,
     },
-    { field: "source", headerName: "source", width: 150 },
   ];
+  const CustomToolbar = () => {
+    return (
+      <GridToolbarContainer>
+        <GridToolbarExport />
+      </GridToolbarContainer>
+    );
+  };
 
   return (
     <DataGrid
       rows={variants}
       columns={columns as GridColDef[]}
       getRowId={(row) => row.variant_id}
+      slots={{
+        toolbar: CustomToolbar,
+      }}
     />
   );
 };

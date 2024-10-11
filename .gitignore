@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.idea/
+.vscode/
+
 radr-backend/dist
 
 # dependencies
@@ -10,7 +13,7 @@ radr-frontend/node_modules/
 /coverage
 
 # production
-/build
+radr-frontend/build
 
 # misc
 .DS_Store

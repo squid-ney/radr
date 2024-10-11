@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, AppBar, Toolbar, Tab, Tabs } from "@mui/material";
+import { Typography, AppBar, Toolbar, Tab, Tabs , useTheme} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export const NavBar = () => {
@@ -9,9 +9,10 @@ export const NavBar = () => {
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+  const theme = useTheme();
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex" , padding: theme.spacing(2)}}>
       <AppBar color="primary">
         <Toolbar>
           <Typography variant="h4" component="h1">
@@ -23,8 +24,8 @@ export const NavBar = () => {
             textColor="secondary"
             indicatorColor="secondary"
           >
-            <Tab label="Home" onClick={() => navigate("/")} />
             <Tab label="Repository" onClick={() => navigate("/variants")} />
+            <Tab label="About" onClick={() => navigate("/about")} />
           </Tabs>
         </Toolbar>
       </AppBar>
