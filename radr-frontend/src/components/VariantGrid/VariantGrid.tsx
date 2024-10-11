@@ -17,15 +17,17 @@ export const VariantGrid = () => {
 
   console.log({ variants });
   const columns: GridColDef[] = [
-    { field: "variant_id", headerName: "Variant ID", width: 150 },
-    { field: "gene", headerName: "Gene", width: 150 },
-    { field: "chromosome", headerName: "Chromosome", width: 150 },
-    { field: "position", headerName: "Position", width: 150 },
-    { field: "ref", headerName: "Ref", width: 150 },
-    { field: "alt", headerName: "Alt", width: 150 },
-    { field: "GH38_gDNA_coord", headerName: "GH38_gDNA_coord", width: 150 },
-    { field: "HgvsP", headerName: "HgvsP", width: 150 },
-    { field: "mutation", headerName: "mutation", width: 150 },
+    {
+      field: "hgvsg",
+      headerName: variantFieldsToReadable["hgvsg"],
+      width: 150,
+      renderCell: (rowData) => (
+        <Link to={`/variant/${rowData.row.variant_id}`}>
+          {rowData.row.hgvsg}
+        </Link>
+      ),
+    },
+    { field: "gene", headerName: variantFieldsToReadable["gene"], width: 150 },
     {
       field: "exonic_func_known_gene",
       headerName: "exonic_func_known_gene",

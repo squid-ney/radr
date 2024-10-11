@@ -107,7 +107,17 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": [
+<<<<<<< Updated upstream
     "src/**/*.ts", "src/app.js"
+=======
+    "src/**/*.ts",
+    "src/app.js",
+    "src/db/dbConnection.js",
+    // "knexfile.js",
+    "src/db/seeds/variants.js"
+    // "src/db/migrations/20240217150406_create_variants_table.js",
+    // "src/db/scripts/db_insert_radr_excel.js"
+>>>>>>> Stashed changes
   ],
   "exclude": [
     "node_modules"
