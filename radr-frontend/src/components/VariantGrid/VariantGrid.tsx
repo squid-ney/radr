@@ -7,17 +7,22 @@ import {
 } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { variantFieldsToReadable } from "../../pages/utils";
+import { Box, Typography, Tooltip, IconButton } from "@mui/material";
+import useTheme from "@mui/system/useTheme";
+import {InfoOutlined} from "@mui/icons-material";
 
 export const VariantGrid = () => {
+  const theme = useTheme();
   const [variants, setVariants] = useState([]);
+
   useEffect(() => {
     const fetchVariants = async () => {
       await fetch("http://localhost:9000/api/variants")
-        .then((res) => res.json())
-        .then((body) => setVariants(body))
-        .catch((err) => {
-          console.log(err);
-        });
+      .then((res) => res.json())
+      .then((body) => setVariants(body))
+      .catch((err) => {
+        console.log(err);
+      });
     };
     fetchVariants();
   }, []);
@@ -65,22 +70,38 @@ export const VariantGrid = () => {
       width: 150,
     },
   ];
+
   const CustomToolbar = () => {
     return (
-      <GridToolbarContainer>
-        <GridToolbarExport />
-      </GridToolbarContainer>
+        <GridToolbarContainer>
+          <GridToolbarExport />
+          <Tooltip
+              title={
+                <Typography variant="body1" component="p" style={{ fontSize: theme.spacing(1.5) }}>
+                  Follow the HGVSg link for more details about each variant. You can filter and search the data in the grid by using the filters visible when hovering over the column header. Use the export button to download the data.
+                </Typography>
+              }
+          >
+            <IconButton>
+              <InfoOutlined color={"primary"} />
+            </IconButton>
+          </Tooltip>
+        </GridToolbarContainer>
     );
   };
 
   return (
-    <DataGrid
-      rows={variants}
-      columns={columns as GridColDef[]}
-      getRowId={(row) => row.variant_id}
-      slots={{
-        toolbar: CustomToolbar,
-      }}
-    />
+      <Box  sx={{ height: '100%', width: '100%' }}>
+        <DataGrid
+            rows={variants}
+            columns={columns as GridColDef[]}
+            defaultPageSize={25}
+            getRowId={(row) => row.variant_id}
+            slots={{
+              toolbar: CustomToolbar,
+            }}
+        />
+      </Box>
   );
-};
+}
+// sx={{ height: '100%', width: '100%' }}
