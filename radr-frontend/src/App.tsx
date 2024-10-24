@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppLayout } from "./components/AppLayout/AppLayout";
 import { ViewVariant } from "./pages/ViewVariant/ViewVariant";
 import { ViewVariants } from "./pages/ViewVariants/ViewVariants";
-import { Home } from "./pages/Home/Home";
+import "./App.css";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +17,7 @@ const router = createBrowserRouter([
       {
         path: "/variant/:variantID",
         element: <ViewVariant />,
-      },
-      {
-        path: "/about",
-        element: <Home />,
-      },
+      }
     ],
   },
 ]);
