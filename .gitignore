@@ -12,9 +12,6 @@ radr-frontend/node_modules/
 # testing
 /coverage
 
-# production
-radr-frontend/build
-
 # misc
 .DS_Store
 .env
