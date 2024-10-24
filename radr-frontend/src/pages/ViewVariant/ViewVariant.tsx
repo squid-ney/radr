@@ -68,7 +68,7 @@ export const ViewVariant = () => {
       <h2>Variant Details</h2>
 
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12}  sm={6}>
           <TableContainer component={Paper}>
             <Box padding={'10px'}>
             <h3>Genomic Information </h3>
@@ -86,10 +86,10 @@ export const ViewVariant = () => {
           </TableContainer>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <TableContainer component={Paper}>
             <Box padding={'10px'}>
-            <h3>Pathogenecity</h3>
+            <h3>Pathogenicity</h3>
             <Table aria-label="simple table">
               <TableBody>
                 {pathogenecityInfoFields.map((field) => (
