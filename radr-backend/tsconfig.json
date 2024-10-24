@@ -107,12 +107,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "src/**/*.ts",
-    "src/app.js",
-    "src/db/dbConnection.js",
-    "src/db/knexfile.js",
-    "src/db/seeds/variants.js",
-    "src/db/migrations/20240217150406_create_variants_table.js"
+    "src/**/*.ts", "src/app.js"
   ],
   "exclude": ["node_modules"]
 }

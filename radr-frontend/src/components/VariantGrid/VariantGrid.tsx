@@ -28,9 +28,9 @@ export const VariantGrid = () => {
       headerName: variantFieldsToReadable["hgvsg"],
       width: 150,
       renderCell: (rowData) => (
-        <Link to={`/variant/${rowData.row.variant_id}`}>
-          {rowData.row.hgvsp}
-        </Link>
+          <Link to={`/variant/${rowData.row.variant_id}`}>
+            {rowData.row.hgvsg}
+          </Link>
       ),
     },
     { field: "gene", headerName: variantFieldsToReadable["gene"], width: 150 },
@@ -45,8 +45,8 @@ export const VariantGrid = () => {
       width: 150,
     },
     {
-      field: "exonic_func_known_gene",
-      headerName: variantFieldsToReadable["exonic_func_known_gene"],
+      field: "exonic_function",
+      headerName: variantFieldsToReadable["exonic_function"],
       width: 250,
     },
     {
@@ -60,8 +60,8 @@ export const VariantGrid = () => {
       width: 150,
     },
     {
-      field: "pathogenecity_radr",
-      headerName: variantFieldsToReadable["pathogenecity_radr"],
+      field: "radr_classification",
+      headerName: variantFieldsToReadable["radr_classification"],
       width: 150,
     },
   ];

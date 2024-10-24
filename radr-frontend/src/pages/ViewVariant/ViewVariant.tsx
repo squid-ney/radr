@@ -44,14 +44,15 @@ export const ViewVariant = () => {
     "position",
     "ref",
     "alt",
-    "gh38_gdna_coord",
+    "gh37_gdna_coordinates",
     "hgvsp",
   ];
+
   const pathogenecityInfoFields: (keyof Variant)[] = [
-    "pathogenecity_original",
-    "pathogenecity_radr",
-    "intervar_and_evidence",
-    "clnsig",
+    "clinvar_clinical_significance",
+    "radr_classification",
+    "intervar_classification",
+    "variant_classification_source"
   ];
   const additionalInfoFields: (keyof Variant)[] = (
     Object.keys(variant) as (keyof Variant)[]

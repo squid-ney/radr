@@ -3,34 +3,42 @@
  * @returns {Promise<void>}
  */
 export async function up(knex) {
-  // @ts-ignore
-  await knex.schema.createTable("variants", (table) => {
-    table.increments("variant_id");
-    table.string("gene");
-    table.string("hgvsg");
-    table.string("hgvsp");
-    table.string("hgvsp_brief");
-    table.string("exonic_func_known_gene");
-    table.string("transvar_input");
-    table.string("clinical_phenotype");
-    table.string("source");
-    table.string("neuropathology");
-    table.string("info"); // TODO: find descriptive name
-    table.string("dbsnp_id");
-    table.string("clnallele_id");
-    table.string("clnrevstat");
-    table.string("clnsig");
-    table.string("intervar_and_evidence");
-    table.string("pathogenecity_radr");
-    table.integer("chromosome");
-    table.string("position");
-    table.string("ref");
-    table.string("alt");
-    table.string("gh38_gdna_coord");
-    table.string("mutation");
-    table.string("region");
-    table.string("pathogenecity_original");
-  });
+    // @ts-ignore
+    await knex.schema.createTable("variants", (table) => {
+        table.increments("variant_id");
+        table.text("gene");
+        table.string("chromosome");
+        table.text("position");
+        table.text("ref");
+        table.text("alt");
+        table.text("gh37_gdna_coordinates");
+        table.text("hgvsg");
+        table.text("hgvsp");
+        table.text("hgvsp_brief");
+        table.text("exonic_function");
+        table.text("region");
+        table.text("mutation_type");
+        table.text("codon_change");
+        table.text("transcript");
+        table.text("strand");
+        table.text("transvar_input");
+        table.text("clinical_phenotype");
+        table.text("clinical_phenotype_source");
+        table.text("neuropathology_alzforum");
+        table.text("info_transvar");
+        table.text("dbsnp_id_clinvar");
+        table.text("clinvar_allele_id");
+        table.text("clinvar_review_status");
+        table.text("clinvar_clinical_significance");
+        table.text("intervar_classification");
+        table.text("radr_classification");
+        table.text("variant_classification_source");
+        table.text("disease_specific_pathogenicities");
+        table.text("odds_ratio_single_variant");
+        table.text("odds_ratio_combined_variant");
+        table.text("rvas");
+        table.text("source");
+    });
 }
 
 /**
