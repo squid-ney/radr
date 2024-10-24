@@ -38,7 +38,7 @@ export const VariantGrid = () => {
           </Link>
       ),
     },
-    { field: "gene", headerName: variantFieldsToReadable["gene"], width: 150 },
+    { field: "gene", headerName: variantFieldsToReadable["gene"], width: 110 },
     {
       field: "hgvsp",
       headerName: variantFieldsToReadable["hgvsp"],
@@ -47,7 +47,7 @@ export const VariantGrid = () => {
     {
       field: "hgvsp_brief",
       headerName: variantFieldsToReadable["hgvsp_brief"],
-      width: 150,
+      width: 110,
     },
     {
       field: "exonic_function",
@@ -60,14 +60,14 @@ export const VariantGrid = () => {
       width: 150,
     },
     {
-      field: "source",
-      headerName: variantFieldsToReadable["source"],
-      width: 150,
+      field: "variant_classification_source",
+      headerName: variantFieldsToReadable["variant_classification_source"],
+      width: 200,
     },
     {
       field: "radr_classification",
       headerName: variantFieldsToReadable["radr_classification"],
-      width: 150,
+      width: 200,
     },
   ];
 
@@ -103,4 +103,3 @@ export const VariantGrid = () => {
       </Box>
   );
 }
-// sx={{ height: '100%', width: '100%' }}
