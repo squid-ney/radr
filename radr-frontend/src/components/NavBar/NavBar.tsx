@@ -19,12 +19,19 @@ export const NavBar = () => {
             RADR
           </Typography>
           <Tabs
+              style={{ paddingLeft: "10px"}}
             onChange={handleChange}
             value={value}
             textColor="secondary"
             indicatorColor="secondary"
+              TabIndicatorProps={{
+                style: {
+                  backgroundColor: 'white',
+                }
+              }}
+
           >
-            <Tab label="Repository" onClick={() => navigate("/variants")} />
+            <Tab label="Repository" onClick={() => navigate("/")} />
             <Tab label="About" onClick={() => navigate("/about")} />
           </Tabs>
         </Toolbar>

@@ -21,37 +21,44 @@ const db = knex({
   useNullAsDefault: true,
 });
 
-// Define the relevant columns for the database
+// Define the updated relevant columns for the database
 const radrExcelColumns = [
-  "Gene",
-  "Chromosome",
-  "Position",
-  "Ref",
-  "Alt",
-  "GH37 gDNA coordinates",
-  "HGVSg",
-  "HGVSp [DELETE?]",
-  "HGVSp_brief",
-  "ExonicFunc.knownGene",
-  "Region",
-  "Mutation Type",
-  "Transvar Input",
-  "Clinical Phenotype [Double-check for ClinVar phenotype]",
-  "Source",
-  "Neuropathology",
-  "Info",
-  "dbSNP ID",
-  "CLNALLELEID",
-  "CLNREVSTAT",
-  "CLNSIG",
-  "Intervar Classification",
-  "RADR Classification",
-  "HGVSp",
-  "Disease Specific Pathogenecities",
+  "gene",
+  "chromosome",
+  "position",
+  "ref",
+  "alt",
+  "gh37_gdna_coordinates",
+  "hgvsg",
+  "hgvsp",
+  "hgvsp_brief",
+  "exonic_function",
+  "region",
+  "mutation_type",
+  "codon_change",
+  "transcript",
+  "strand",
+  "transvar_input",
+  "clinical_phenotype",
+  "clinical_phenotype_source",
+  "neuropathology_alzforum",
+  "info_transvar",
+  "dbsnp_id_clinvar",
+  "clinvar_allele_id",
+  "clinvar_review_status",
+  "clinvar_clinical_significance",
+  "intervar_classification",
+  "radr_classification",
+  "variant_classification_source",
+  "disease_specific_pathogenicities",
+  "odds_ratio_single_variant",
+  "odds_ratio_combined_variant",
+  "rvas",
+  "source"
 ];
 
 const workbook = readFile(
-  "/Users/Sydney/Repositories/radr/radr-backend/src/db/scripts/RADR_8_22_2024_edited_raj_v3(Sheet1).csv"
+  "/Users/sydneynicoleachinger/Repositories/personal/radr/radr-backend/src/db/scripts/radr_data_10-11.csv"
 );
 
 const sheetName = workbook.SheetNames[0];
