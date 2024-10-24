@@ -7,12 +7,14 @@ import {
   TableContainer,
   TableRow,
   Paper,
-  Grid,
+  Grid, IconButton, Box,
 } from "@mui/material";
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams } from "react-router-dom";
+import {ArrowBack} from "@mui/icons-material";
 
 export const ViewVariant = () => {
   const [variant, setVariant] = useState({});
+  const navigate = useNavigate();
   const { variantID } = useParams();
 
   useEffect(() => {
@@ -62,11 +64,13 @@ export const ViewVariant = () => {
 
   return (
     <>
+      <IconButton size={"small"} color={"primary"} onClick={() => navigate("/")}><ArrowBack/></IconButton>
       <h2>Variant Details</h2>
 
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <TableContainer component={Paper}>
+            <Box padding={'10px'}>
             <h3>Genomic Information </h3>
             <Table aria-label="simple table">
               <TableBody>
@@ -78,11 +82,13 @@ export const ViewVariant = () => {
                 ))}
               </TableBody>
             </Table>
+            </Box>
           </TableContainer>
         </Grid>
 
         <Grid item xs={6}>
           <TableContainer component={Paper}>
+            <Box padding={'10px'}>
             <h3>Pathogenecity</h3>
             <Table aria-label="simple table">
               <TableBody>
@@ -94,11 +100,13 @@ export const ViewVariant = () => {
                 ))}
               </TableBody>
             </Table>
+            </Box>
           </TableContainer>
         </Grid>
 
         <Grid item xs={12}>
           <TableContainer component={Paper}>
+            <Box padding={'10px'}>
             <h3>Additional Details</h3>
             <Table aria-label="simple table">
               <TableBody>
@@ -110,6 +118,7 @@ export const ViewVariant = () => {
                 ))}
               </TableBody>
             </Table>
+            </Box>
           </TableContainer>
         </Grid>
       </Grid>

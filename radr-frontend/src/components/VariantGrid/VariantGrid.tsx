@@ -95,7 +95,6 @@ export const VariantGrid = () => {
         <DataGrid
             rows={variants}
             columns={columns as GridColDef[]}
-            defaultPageSize={25}
             getRowId={(row) => row.variant_id}
             slots={{
               toolbar: CustomToolbar,
