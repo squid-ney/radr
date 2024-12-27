@@ -20,7 +20,7 @@ export const ViewVariant = () => {
   useEffect(() => {
     const fetchVariants = async () => {
       const request: Request = new Request(
-        "http://localhost:9000/api/variant",
+        "/api/variant",
         {
           method: "POST",
           headers: {
