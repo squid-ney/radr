@@ -17,7 +17,7 @@ export const VariantGrid = () => {
 
   useEffect(() => {
     const fetchVariants = async () => {
-      await fetch("/api/variants")
+      await fetch("http://localhost:9000/api/variants")
       .then((res) => res.json())
       .then((body) => setVariants(body))
       .catch((err) => {
