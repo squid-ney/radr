@@ -1,10 +1,21 @@
 import "dotenv/config";
-import { Database } from "./db/database.js";
-import { DB_CONNECTION, DB_CLIENT } from "./db/dbConnection.js";
+import {RadrDatabase} from "./db/RadrDatabase";
+import {PostgresDatabase} from "./db/postgres/database.js";
+import {LokiDatabase} from "./db/loki/database.js";
 import express, { Request, Response } from "express";
+import {DB_CLIENT, DB_CONNECTION} from "./db/postgres/dbConnection.js";
 const app = express();
 
-const knexDB = new Database(DB_CLIENT, DB_CONNECTION).getDB();
+let radrDatabase: RadrDatabase;
+
+if(process.argv.includes("--postgres")){
+  console.log("Using Postgres");
+  radrDatabase = new PostgresDatabase(DB_CLIENT, DB_CONNECTION);
+}
+else{
+  console.log("Using Loki");
+  radrDatabase = new LokiDatabase();
+}
 
 app.use(express.json());
 app.use(function (req, res, next) {
@@ -21,17 +32,13 @@ app.get("/api", (req, res) => {
 });
 
 app.get("/api/variants", async (req, res) => {
-  const results = await knexDB.select("*").from("variants");
-  res.send(results);
+  const variants = await radrDatabase.getVariants()
+  res.send(variants);
 });
 
 app.post("/api/variant", async (req: Request, res: Response) => {
   const { variant_id } = req.body;
-  const variant = await knexDB
-    .select("*")
-    .from("variants")
-    .where({ variant_id })
-    .first();
+  const variant = await radrDatabase.getVariantById(variant_id);
   res.send(variant);
 });
 
