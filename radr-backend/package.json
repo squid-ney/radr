@@ -5,7 +5,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && node --experimental-modules dist/app.js",
+    "build": "tsc && cp src/db/loki/data/radr_data_10-11.csv dist/db/loki/data/",
+    "start": "yarn build && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "knex migrate:latest --knexfile ./src/db/knexfile.js",
     "seed": "knex seed:run --knexfile ./src/db/knexfile.js",
