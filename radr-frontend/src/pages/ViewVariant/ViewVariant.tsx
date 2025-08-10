@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import {useNavigate, useParams } from "react-router-dom";
 import {ArrowBack} from "@mui/icons-material";
-import { config } from "../config";
+import { config } from "../../config";
 
 export const ViewVariant = () => {
   const [variant, setVariant] = useState({});
