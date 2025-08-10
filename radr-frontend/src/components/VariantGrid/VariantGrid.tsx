@@ -10,6 +10,7 @@ import { variantFieldsToReadable } from "../../pages/utils";
 import { Box, Typography, Tooltip, IconButton } from "@mui/material";
 import useTheme from "@mui/system/useTheme";
 import {InfoOutlined} from "@mui/icons-material";
+import { config } from "../../config";
 
 export const VariantGrid = () => {
   const theme = useTheme();
@@ -17,7 +18,7 @@ export const VariantGrid = () => {
 
   useEffect(() => {
     const fetchVariants = async () => {
-      await fetch("/api/variants")
+      await fetch(`${config.API_BASE_URL}${config.API_ENDPOINTS.VARIANTS}`)
       .then((res) => res.json())
       .then((body) => setVariants(body))
       .catch((err) => {

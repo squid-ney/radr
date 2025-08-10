@@ -20,7 +20,7 @@ else{
 }
 
 app.use("*", cors({
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000", "https://radr-frontend.vercel.app"],
   allowHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"]
 }));
 

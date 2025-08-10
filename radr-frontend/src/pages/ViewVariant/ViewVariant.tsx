@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import {useNavigate, useParams } from "react-router-dom";
 import {ArrowBack} from "@mui/icons-material";
+import { config } from "../../config";
 
 export const ViewVariant = () => {
   const [variant, setVariant] = useState({});
@@ -20,7 +21,7 @@ export const ViewVariant = () => {
   useEffect(() => {
     const fetchVariants = async () => {
       const request: Request = new Request(
-        "/api/variant",
+        `${config.API_BASE_URL}${config.API_ENDPOINTS.VARIANT}`,
         {
           method: "POST",
           headers: {
